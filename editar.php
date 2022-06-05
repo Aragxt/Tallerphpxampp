@@ -5,11 +5,11 @@ if(isset($_GET['id'])){
     $query = "SELECT * FROM producto WHERE id = $id";
     $result = mysqli_query($conn, $query);
     if(mysqli_num_rows($result) == 1){
+        $row = mysqli_fetch_array($result);
         $nom = $row['nombre'];
         $id = $row['id'];
         $fechaNaci = $row['fecha'];
         $precio = $row['precio'];
-        $_FILES = mysqli_fetch_row($result);    
         $imag = $_FILES['imagen']['tmp_name'];
     }
 }
